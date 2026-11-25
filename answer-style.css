@@ -19,6 +19,9 @@
 .markdown-content code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;background:#f4f4f4;color:#202123;padding:2px 4px;border-radius:4px;font-size:.875em}
 .markdown-content pre{background:#f7f7f8;color:#202123;border:1px solid #e5e5e5;border-radius:12px;padding:20px;line-height:1.65;margin:24px 0;white-space:pre;overflow-x:auto}
 .markdown-content pre code{font-size:14px;color:inherit;background:none;padding:0}
+.mermaid-note{display:block;max-width:100%;height:auto;margin:24px 0}
+.markdown-content .mermaid-note-status{margin:20px 0 0;color:#8f3931}
+.mermaid-note-status + pre{margin-top:8px}
 .markdown-content .table-scroll{overflow-x:auto;max-width:100%;margin:24px 0}
 .markdown-content table{font-size:14px;line-height:1.6;margin:0;display:table;width:100%;max-width:none;border-collapse:collapse}
 .markdown-content th,.markdown-content td{border:0;border-bottom:1px solid #e8e8e8;padding:11px 14px;text-align:left;min-width:100px}
@@ -37,4 +40,4 @@
   .markdown-content pre{padding:16px}.markdown-content pre code{font-size:13px}.notepreview{padding:18px}
   .revisionactions{flex-direction:column;gap:7px}.deletecustom{min-height:38px}.notefield{font-size:16px}
 }
-@media print{.deletecustom,.pastehelp{display:none!important}.markdown-content pre{white-space:pre-wrap}}
+@media print{.deletecustom,.pastehelp{display:none!important}.markdown-content pre{white-space:pre-wrap}.mermaid-note{break-inside:avoid}}

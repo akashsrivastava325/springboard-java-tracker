@@ -5,7 +5,7 @@ A mobile-friendly interview notebook with 300 questions across 19 sections from 
 ## Study features
 
 - Question checkboxes and per-section progress.
-- Separate Complete and Skim note editors and revision views.
+- Separate Complete and Skim note editors and revision views. Fenced `mermaid` blocks render as diagrams in the editor preview and saved notes.
 - Red **+ Pre-REQUISITE** buttons inside each question card. Add a question or standalone note immediately before the selected question.
 - Complete and Skim notes can be entered directly while adding an item.
 - Search across questions and notes; filter by section, question group, or progress.
@@ -19,7 +19,7 @@ A mobile-friendly interview notebook with 300 questions across 19 sections from 
 
 In this repository, open **Settings → Pages**. Under **Build and deployment**, choose **Deploy from a branch**, select **main** and **/(root)**, and click **Save**. GitHub then builds the site.
 
-The site has no build step. Publish `index.html`, `java-questions.js`, `firebase-config.js`, `firebase-sync.mjs`, `sync-engine.mjs`, `answer-style.css`, `paste-markdown.js`, `comments.js`, `comments.css`, and `comments-store.mjs` together. Firebase SDK modules load from Google’s CDN only when configured.
+The site has no build step. Publish `index.html`, `java-questions.js`, `mermaid-notes.js`, `firebase-config.js`, `firebase-sync.mjs`, `sync-engine.mjs`, `answer-style.css`, `paste-markdown.js`, `comments.js`, `comments.css`, and `comments-store.mjs` together. Firebase SDK modules load from Google’s CDN only when configured.
 
 ## Account sync with Firebase
 
