@@ -27,11 +27,11 @@ Guest notes remain in the current browser. Signed-in notebooks are private to ea
 
 ### One-time setup
 
-1. Sign in to [Firebase Console](https://console.firebase.google.com/) with your Google account and open the Firebase project you want to use. You can reuse the Spring Boot project and its existing tracker accounts.
+1. The live Java tracker uses the dedicated [Springboard Java Tracker Firebase project](https://console.firebase.google.com/project/springboard-java-tracker/overview). For a new deployment, create a dedicated Firebase project.
 2. In Project settings → Your apps, register a Web app. Copy its `apiKey`, `authDomain`, `projectId`, and `appId` into `firebase-config.js`. This configuration is public; never add a service-account JSON or private key.
 3. In Authentication → Sign-in method, enable Email/Password. In Authentication → Settings → Authorized domains, add `akashsrivastava325.github.io` (and `localhost` for local testing).
 4. If the project has no Cloud Firestore database, create the default database in production mode.
-5. In Firestore → Rules, merge the Java notebook and comments rules into the active rules. The included `firestore.rules` covers both trackers. If the project has other rules, preserve them when merging.
+5. In the dedicated Java project, use Firestore → Rules to publish the Java-only rules from `firestore.rules`.
 6. Publish these files to GitHub Pages. Create a tracker account, then choose **Copy guest notebook to account** from the browser that holds your existing notes. This replaces the account notebook after confirmation. Export a backup first if both have notes.
 7. On your phone, open the same Pages URL and sign in to that tracker account.
 
@@ -41,7 +41,7 @@ Signing into Firebase Console with Gmail creates/manages your Firebase project. 
 
 Edits save locally immediately and upload after 800 ms of inactivity. An open, visible page checks for remote changes every 15 seconds while no editor is open. Refreshing also loads cloud changes. Offline edits are kept in a per-account local queue, retried when online, and restored after reload once signed in. Check **Saved to your account** before switching devices. Sign-out waits for pending saves and keeps you signed in if they fail.
 
-Firestore stores each Java notebook at `users/{uid}/notebooks/java`. The Spring Boot notebook remains at `users/{uid}/notebooks/main`. Each save uses a transaction and checks the cloud revision. If both devices have changed the notebook, sync pauses and offers **Load cloud copy** or **Replace cloud with this copy**. Export a backup first; no automatic merge is attempted. Guest notes are never uploaded automatically or mixed between accounts. Local account caches remain in the browser after sign-out; use a trusted browser profile.
+Firestore stores each Java notebook at `users/{uid}/notebooks/java`. The Spring Boot tracker uses its own Firebase project. Each save uses a transaction and checks the cloud revision. If both devices have changed the notebook, sync pauses and offers **Load cloud copy** or **Replace cloud with this copy**. Export a backup first; no automatic merge is attempted. Guest notes are never uploaded automatically or mixed between accounts. Local account caches remain in the browser after sign-out; use a trusted browser profile.
 
 A notebook’s UTF-8 JSON must be below 900,000 bytes to fit safely within Firestore’s document limit. Larger notebooks remain locally available with an explicit sync error; export a backup and shorten notes before retrying. JSON export/import and printing remain available. Import while signed in replaces that account notebook after confirmation and syncs it to the cloud.
 
